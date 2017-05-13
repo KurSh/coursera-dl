@@ -17,7 +17,6 @@ RUN apt-get update && \
 COPY . /src
 RUN python setup.py install
 
-WORKDIR /
-VOLUME /Downloaded
+WORKDIR /courses
 ENTRYPOINT ["coursera-dl"]
 CMD ["--help"]
