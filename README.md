@@ -62,13 +62,13 @@ I've downloaded many other good videos such as those from Khan Academy.
 
 # Features
 
-  * Support for all kinds of courses (i.e., "Old Platform"/time-based as
+* Support for all kinds of courses (i.e., "Old Platform"/time-based as
     well as "New Platform"/on-demand courses).
-  * Intentionally detailed names, so that it will display and sort properly
+* Intentionally detailed names, so that it will display and sort properly
     on most interfaces (e.g., [VLC][4] or MX Video on Android devices).
-  * Regex-based section (week) and lecture name filters to download only
+* Regex-based section (week) and lecture name filters to download only
     certain resources.
-  * File format extension filter to grab resource types you want.
+* File format extension filter to grab resource types you want.
   * Login credentials accepted on command-line or from `.netrc` file.
   * Core functionality tested on Linux, Mac and Windows.
 
@@ -233,6 +233,19 @@ C:\Users\<user>\AppData\Local\Programs\Python\Python35-32\Scripts;C:\Users\<user
 
 Coursera-dl can now be run from commandline or powershell.
 
+## Docker
+
+If you prefer you can run this software inside [Docker](https://docker.com):
+
+```
+docker run --rm -it \
+       -v "$(pwd):/courses" \
+       -u <USER> -p <PASSWORD> \
+       strm/coursera-dl
+```
+
+The actual working dir for coursera-dl is `/courses`, all courses will be downloaded there if you don't specify otherwise. 
+
 ## Create an account with Coursera
 
 If you don't already have one, create a [Coursera][1] account and enroll in
@@ -253,7 +266,7 @@ class names, as well as any additional parameters:
     Get the preview classes:     coursera-dl -n -b ni-001
     Specify download path:       coursera-dl -n --path=C:\Coursera\Classes\ comnetworks-002
     Display help:                coursera-dl --help
-
+    
     Maintain a list of classes in a dir:
       Initialize:              mkdir -p CURRENT/{class1,class2,..classN}
       Update:                  coursera-dl -n --path CURRENT `\ls CURRENT`
@@ -350,13 +363,13 @@ one of the following actions solve your problem:
 
 * If you get an error like `Could not find class: <CLASS_NAME>`, then:
     * Verify that the name of the course is correct. Current class
-    names in coursera are composed by a short course name e.g. `class` and
-    the current version of the course (a number). For example, for a
-    class named `class`, you would have to use `class-001`, `class-002`
-    etc.
+      names in coursera are composed by a short course name e.g. `class` and
+      the current version of the course (a number). For example, for a
+      class named `class`, you would have to use `class-001`, `class-002`
+      etc.
     * Second, verify that you are enrolled in the course. You won't be
-    able to access the course materials if you are not officially
-    enrolled and agreed to the honor course *via the website*.
+      able to access the course materials if you are not officially
+      enrolled and agreed to the honor course *via the website*.
 
 * If:
     * You get an error when using `-n` to specify that you want to use a
@@ -461,14 +474,14 @@ https://urllib3.readthedocs.io/en/latest/security.html#insecureplatformwarning
 Before reporting any issue please follow the steps below:
 
 1. Verify that you are running the latest version of the script, and the
-recommended versions of its dependencies, see them in the file
-`requirements.txt`.  Use the following command if in doubt:
+   recommended versions of its dependencies, see them in the file
+   `requirements.txt`.  Use the following command if in doubt:
 
-        pip install --upgrade coursera-dl
+         pip install --upgrade coursera-dl
 
 2. If the problem persists, feel free to [open an issue][issue] in our
-bugtracker, please fill the issue template with *as much information as
-possible*.
+   bugtracker, please fill the issue template with *as much information as
+   possible*.
 
 [issue]: https://github.com/coursera-dl/coursera-dl/issues
 
