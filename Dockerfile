@@ -12,7 +12,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     pip install -r requirements.txt && \
     pip install -r requirements-dev.txt && \
-    apt-get purge -y --auto-remove gcc g++
+    apt-get purge -y --auto-remove gcc g++ libssl-dev
 
 COPY . /src
 RUN python setup.py install
